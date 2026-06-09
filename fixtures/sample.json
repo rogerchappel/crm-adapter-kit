@@ -1,0 +1,44 @@
+{
+  "contacts": [
+    {
+      "id": "c_ada",
+      "name": "Ada Lovelace",
+      "email": "ada@example.com",
+      "accountId": "a_analytic",
+      "tags": [
+        "investor",
+        "technical"
+      ]
+    },
+    {
+      "id": "c_grace",
+      "name": "Grace Hopper",
+      "email": "grace@example.com",
+      "accountId": "a_compiler",
+      "tags": [
+        "operator"
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "id": "a_analytic",
+      "name": "Analytic Ventures",
+      "stage": "active"
+    },
+    {
+      "id": "a_compiler",
+      "name": "Compiler Labs",
+      "stage": "prospect"
+    }
+  ],
+  "deals": [
+    {
+      "id": "d_seed",
+      "accountId": "a_analytic",
+      "name": "Seed round",
+      "value": 250000,
+      "stage": "diligence"
+    }
+  ]
+}
