@@ -33,5 +33,11 @@ npm test
 npm run check
 npm run build
 npm run smoke
+npm run package:smoke
+npm run release:check
 bash scripts/validate.sh
 ```
+
+`npm run release:check` is the release-candidate gate used by CI. It checks
+syntax, runs the Node test suite, executes the CLI smoke path, and performs an
+npm pack dry-run.
