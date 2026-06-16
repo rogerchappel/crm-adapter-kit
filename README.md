@@ -2,42 +2,50 @@
 
 Provider-neutral CRM primitives and dry-run action plans for agents.
 
-## Quickstart
+## Status
 
-```bash
-npm test
-npm run smoke
-crm-adapter-kit --help
-```
+This repository is early-stage. Use it for local automation and review workflows, and verify the output before relying on it in production.
 
-## What It Does
+## Install
 
-A provider-neutral CRM adapter contract for agents: contacts, accounts, deals, notes, tasks, and dry-run writes.
-
-The package is local-first: it reads fixtures or project files and emits deterministic JSON/Markdown output. It does not publish, post, sync, or write to external accounts.
-
-## Examples
-
-See [examples/basic.md](examples/basic.md) and the fixture-backed tests in [tests/core.test.js](tests/core.test.js).
-
-## Limitations
-
-- V1 uses local fixtures and static checks only.
-- Live provider integrations require a separate approval and adapter layer.
-- Generated plans are review artifacts, not authorization to perform external writes.
-
-## Verification
-
-```bash
-npm test
-npm run check
+```sh
+npm install
 npm run build
-npm run smoke
-npm run package:smoke
-npm run release:check
-bash scripts/validate.sh
 ```
 
-`npm run release:check` is the release-candidate gate used by CI. It checks
-syntax, runs the Node test suite, executes the CLI smoke path, and performs an
-npm pack dry-run.
+## Use
+
+Start with the built-in help or the smallest local check:
+
+```sh
+npx crm-adapter-kit --help
+```
+```sh
+npm test
+```
+
+## Verify
+
+Run the local validation command before opening a pull request:
+
+```sh
+npm test
+```
+
+For release hygiene, confirm the package contents before publishing:
+
+```sh
+npm run package:smoke
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations. Keep changes small, reviewable, and backed by the verification command above.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance. Do not include secrets, private logs, or customer data in issues or fixtures.
+
+## License
+
+MIT
