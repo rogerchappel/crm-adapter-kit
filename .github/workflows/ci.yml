@@ -11,15 +11,15 @@ permissions:
   contents: read
 
 jobs:
-  release-check:
-    name: Release check
+  release-readiness:
+    name: Release readiness
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Set up Node
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 22
@@ -27,5 +27,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run release check
+      - name: Run release checks
         run: npm run release:check
