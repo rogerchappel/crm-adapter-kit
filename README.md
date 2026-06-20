@@ -19,9 +19,7 @@ Start with the built-in help or the smallest local check:
 
 ```sh
 npx crm-adapter-kit --help
-```
-```sh
-npm test
+npm run smoke
 ```
 
 ## Verify
@@ -29,7 +27,7 @@ npm test
 Run the local validation command before opening a pull request:
 
 ```sh
-npm test
+npm run release:check
 ```
 
 For release hygiene, confirm the package contents before publishing:
@@ -56,7 +54,6 @@ Run the release gate before tagging or publishing:
 
 ```sh
 npm run release:check
-npm pack --dry-run
 ```
 
 The package smoke check prints the tarball contents so missing runtime files are caught before release.
