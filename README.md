@@ -22,6 +22,8 @@ npx crm-adapter-kit --help
 npm run smoke
 ```
 
+See [docs/CLI.md](docs/CLI.md) for command examples, local-only adapter scope, and exit behavior.
+
 ## Verify
 
 Run the local validation command before opening a pull request:
