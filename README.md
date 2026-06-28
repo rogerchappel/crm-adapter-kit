@@ -63,6 +63,15 @@ For release hygiene, confirm the package contents before publishing:
 npm run package:smoke
 ```
 
+## Limitations
+
+- `crm-adapter-kit` reads local fixture data only. It does not authenticate to,
+  query, or mutate Salesforce, HubSpot, or any other CRM provider.
+- Dry-run plans are deterministic previews for review. They are not delivery
+  confirmations and must be mapped to a real provider adapter before execution.
+- Fixture data should stay synthetic. Do not commit customer records, private
+  notes, access tokens, or exported CRM payloads.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations. Keep changes small, reviewable, and backed by the verification command above.
