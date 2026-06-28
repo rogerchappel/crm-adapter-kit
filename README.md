@@ -24,6 +24,31 @@ npm run smoke
 
 See [docs/CLI.md](docs/CLI.md) for command examples, local-only adapter scope, and exit behavior.
 
+Run a fixture-backed summary:
+
+```sh
+crm-adapter-kit summary --adapter fixtures/sample.json
+```
+
+Expected output shape:
+
+```json
+{
+  "contacts": 2,
+  "accounts": 2,
+  "deals": 2
+}
+```
+
+Plan a dry-run follow-up task without touching a CRM provider:
+
+```sh
+crm-adapter-kit plan-task --adapter fixtures/sample.json --contact "Ada Lovelace" --follow-up "Send deck"
+```
+
+The result is marked as a dry run and includes the planned action type,
+contact id, title, and rationale.
+
 ## Verify
 
 Run the local validation command before opening a pull request:
@@ -37,6 +62,15 @@ For release hygiene, confirm the package contents before publishing:
 ```sh
 npm run package:smoke
 ```
+
+## Limitations
+
+- `crm-adapter-kit` reads local fixture data only. It does not authenticate to,
+  query, or mutate Salesforce, HubSpot, or any other CRM provider.
+- Dry-run plans are deterministic previews for review. They are not delivery
+  confirmations and must be mapped to a real provider adapter before execution.
+- Fixture data should stay synthetic. Do not commit customer records, private
+  notes, access tokens, or exported CRM payloads.
 
 ## Contributing
 
