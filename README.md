@@ -24,6 +24,31 @@ npm run smoke
 
 See [docs/CLI.md](docs/CLI.md) for command examples, local-only adapter scope, and exit behavior.
 
+Run a fixture-backed summary:
+
+```sh
+crm-adapter-kit summary --adapter fixtures/sample.json
+```
+
+Expected output shape:
+
+```json
+{
+  "contacts": 2,
+  "accounts": 2,
+  "deals": 2
+}
+```
+
+Plan a dry-run follow-up task without touching a CRM provider:
+
+```sh
+crm-adapter-kit plan-task --adapter fixtures/sample.json --contact "Ada Lovelace" --follow-up "Send deck"
+```
+
+The result is marked as a dry run and includes the planned action type,
+contact id, title, and rationale.
+
 ## Verify
 
 Run the local validation command before opening a pull request:
