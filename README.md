@@ -77,6 +77,19 @@ For release hygiene, confirm the package contents before publishing:
 npm run package:smoke
 ```
 
+
+## Verification
+
+Run the local quality gates before opening a pull request:
+
+```sh
+npm run lint
+npm test
+npm run smoke
+```
+
+`npm run lint` is an alias for the repository static check so contributors can use the common npm workflow without guessing the project-specific command.
+
 ## Limitations
 
 - `crm-adapter-kit` reads local fixture data only. It does not authenticate to,
