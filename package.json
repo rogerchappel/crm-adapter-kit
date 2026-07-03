@@ -22,9 +22,10 @@
     "SKILL.md"
   ],
   "scripts": {
-    "test": "node --test",
-    "check": "node --check src/*.js bin/cli.js tests/*.test.js",
     "build": "node scripts/build.js",
+    "check": "node --check src/*.js bin/cli.js tests/*.test.js",
+    "lint": "node --check src/*.js bin/cli.js tests/*.test.js",
+    "test": "node --test",
     "smoke": "node bin/cli.js --help && node scripts/smoke.js",
     "package:smoke": "node scripts/package-smoke.js",
     "release:check": "npm run check && npm test && npm run smoke && npm run package:smoke"
