@@ -107,6 +107,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations. Keep chang
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance. Do not include secrets, private logs, or customer data in issues or fixtures.
 
+## Development checks
+
+Run the same local gates that CI runs before opening a PR:
+
+```bash
+npm run check --if-present
+npm run build --if-present
+npm test --if-present
+npm run smoke --if-present
+```
+
 ## License
 
 MIT
