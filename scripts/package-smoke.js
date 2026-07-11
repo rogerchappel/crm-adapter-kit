@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 
@@ -13,6 +13,11 @@ if (!tarball) throw new Error("npm pack did not create a crm-adapter-kit tarball
 mkdirSync(app);
 execFileSync("npm", ["init", "-y"], { cwd: app, stdio: "ignore" });
 execFileSync("npm", ["install", join(tmp, tarball)], { cwd: app, stdio: "inherit" });
+
+const installedRoot = join(app, "node_modules", "crm-adapter-kit");
+if (!existsSync(join(installedRoot, "CODE_OF_CONDUCT.md"))) {
+  throw new Error("installed package is missing CODE_OF_CONDUCT.md");
+}
 
 const fixture = join(app, "crm.json");
 writeFileSync(fixture, JSON.stringify({

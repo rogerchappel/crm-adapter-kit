@@ -19,7 +19,8 @@
     "README.md",
     "LICENSE",
     "SECURITY.md",
-    "SKILL.md"
+    "SKILL.md",
+    "CODE_OF_CONDUCT.md"
   ],
   "scripts": {
     "build": "node scripts/build.js",
@@ -38,6 +39,9 @@
   ],
   "author": "Roger Chappel",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rogerchappel/crm-adapter-kit.git"
